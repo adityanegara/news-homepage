@@ -5,6 +5,7 @@ import { css } from "@emotion/react/macro";
 import { Global } from "@emotion/react";
 import { ThemeProvider, Theme } from "@emotion/react";
 import Container from "./components/atoms/Container/Container";
+import { RippleButton } from "./components/atoms/Button/RippleButton";
 
 const theme: Theme = {
   layout: {
@@ -56,6 +57,8 @@ const App = () => {
       <Global styles={global} />
       <Container>
         <p>Testing</p>
+        <button>test</button>
+        <RippleButton/>
       </Container>
     </ThemeProvider>
   );
