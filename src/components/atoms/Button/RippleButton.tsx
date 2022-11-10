@@ -1,6 +1,6 @@
 import { MouseEvent } from "react";
 import { createRoot } from "react-dom/client";
-import { Ripple } from "./Ripple";
+import   Ripple   from "./Ripple";
 import "./styles.css";
 
 export const RippleButton = () => {
@@ -26,8 +26,7 @@ export const RippleButton = () => {
   return (
     <button onClick={handleClick} className="ripple-button">
       <span className="ripple-button-text">
-        Login Now
-        <span className="material-symbols-outlined">arrow_forward</span>
+        Testing
       </span>
 
       <span id="ripple-container"></span>

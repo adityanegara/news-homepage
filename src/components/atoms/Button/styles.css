@@ -15,7 +15,7 @@
 .ripple-button{
     position: relative;
     overflow: hidden;
-    padding: 20px 26px 20px 32px;
+    padding: 5px 10px;
     border: 0;
     border-radius: 6px;
     background: #f5307b;
