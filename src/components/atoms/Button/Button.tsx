@@ -1,7 +1,6 @@
 import { useState, useEffect, MouseEvent } from "react";
 import styled from "@emotion/styled";
 import { keyframes } from "@emotion/react";
-import "./Button.css";
 
 interface ContainerProps {
   children: React.ReactNode;
@@ -38,19 +37,20 @@ const StyledButton = styled("button")({
   border: "none",
   margin: "8px",
   padding: "14px 24px",
-  background: "#19762d2",
   color: "#fff",
   overflow: "hidden",
   position: "relative",
   cursor: "pointer",
-});
+}, (props)=>({
+  background: props.theme.colors.neutral.white
+}));
 
 const Ripple = styled("span")<Coordinate>(
   {
-    width: "20px",
-    height: "20px",
+    width: "10px",
+    height: "10px",
     position: "absolute",
-    background: "coral",
+    background: "gray",
     display: "block",
     content: '""',
     borderRadius: "50%",
@@ -60,6 +60,7 @@ const Ripple = styled("span")<Coordinate>(
   (props) => ({
     left: props.x,
     right: props.y,
+    background: props.theme.colors.neutral.darkGray
   })
 );
 

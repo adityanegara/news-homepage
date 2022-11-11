@@ -6,6 +6,7 @@ import { Global } from "@emotion/react";
 import { ThemeProvider, Theme } from "@emotion/react";
 import Container from "./components/atoms/Container/Container";
 import Button from "./components/atoms/Button/Button";
+import Navbar from "./components/molecules/navbar/Navbar";
 
 const theme: Theme = {
   layout: {
@@ -34,6 +35,7 @@ const theme: Theme = {
 const global = css({
   ["body"]: {
     margin: 0,
+    backgroundColor: theme.colors.neutral.white,
     boxSizing: "border-box",
     padding: 0,
     overflowX: "hidden",
@@ -56,14 +58,7 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <Global styles={global} />
       <Container>
-        <p>Testing</p>
-        <Button onClick={()=>{console.log('click')}}>
-          Wolo 1
-        </Button>
-
-        <Button onClick={()=>{console.log('click')}}>
-          Wolo 2
-        </Button>
+        <Navbar/>
       </Container>
     </ThemeProvider>
   );
