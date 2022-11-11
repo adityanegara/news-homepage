@@ -11,14 +11,33 @@ interface Coordinate {
   y: number;
 }
 
+const DEFAULT_COORDINATE = {
+  x: -1,
+  y: -1,
+};
+
 const Button = ({ children, onClick }: ContainerProps): JSX.Element => {
-  const [coordinate, setCoordinate] = useState<Coordinate>({ x: -1, y: -1 });
+  const [coordinate, setCoordinate] = useState<Coordinate>(DEFAULT_COORDINATE);
   const [isRippling, setIsRippling] = useState<boolean>(false);
 
+  const checkCoordinate = (x: number, y: number) => {
+    return x !== DEFAULT_COORDINATE.x && y !== DEFAULT_COORDINATE.y
+      ? true
+      : false;
+  };
+
+  const stopRipple = async (time: number) => {
+    await setTimeout(() => setIsRippling(false), time);
+  };
+
+  const resetCoordinate = () => {
+    setCoordinate(DEFAULT_COORDINATE);
+  };
+
   useEffect(() => {
-    if (coordinate.x !== -1 && coordinate.y !== -1) {
+    if (checkCoordinate(coordinate.x, coordinate.y)) {
       setIsRippling(true);
-      setTimeout(() => setIsRippling(false), 300);
+      stopRipple(1000);
     } else {
       setIsRippling(false);
     }
@@ -26,30 +45,33 @@ const Button = ({ children, onClick }: ContainerProps): JSX.Element => {
 
   useEffect(() => {
     if (!isRippling) {
-      setCoordinate({ x: -1, y: -1 });
+      resetCoordinate();
     }
   }, [isRippling]);
 
+  const renderRipple = (
+    isRippling: boolean,
+    coordinateX: number,
+    coordinateY: number
+  ) => {
+    return isRippling ? (
+      <span
+        className="ripple"
+        style={{ left: coordinateX, top: coordinateY }}
+      />
+    ) : (
+      ""
+    );
+  };
+
+  const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setCoordinate({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+    onClick && onClick(e);
+  };
   return (
-    <button
-      className="ripple-button"
-      onClick={(e: MouseEvent<HTMLButtonElement>) => {
-        const rect = e.currentTarget.getBoundingClientRect();
-        setCoordinate({ x: e.clientX - rect.left, y: e.clientY - rect.top });
-        onClick && onClick(e);
-      }}
-    >
-      {isRippling ? (
-        <span
-          className="ripple"
-          style={{
-            left: coordinate.x,
-            top: coordinate.y,
-          }}
-        />
-      ) : (
-        ""
-      )}
+    <button className="ripple-button" onClick={handleClick}>
+      {renderRipple(isRippling, coordinate.x, coordinate.y)}
       <span className="content">{children}</span>
     </button>
   );
