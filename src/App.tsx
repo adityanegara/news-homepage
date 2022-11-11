@@ -5,7 +5,7 @@ import { css } from "@emotion/react/macro";
 import { Global } from "@emotion/react";
 import { ThemeProvider, Theme } from "@emotion/react";
 import Container from "./components/atoms/Container/Container";
-import { RippleButton } from "./components/atoms/Button/RippleButton";
+import Button from "./components/atoms/Button/Button";
 
 const theme: Theme = {
   layout: {
@@ -57,8 +57,13 @@ const App = () => {
       <Global styles={global} />
       <Container>
         <p>Testing</p>
-        <button>test</button>
-        <RippleButton/>
+        <Button onClick={()=>{console.log('click')}}>
+          Wolo 1
+        </Button>
+
+        <Button onClick={()=>{console.log('click')}}>
+          Wolo 2
+        </Button>
       </Container>
     </ThemeProvider>
   );
