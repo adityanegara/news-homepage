@@ -5,11 +5,18 @@ import { keyframes } from "@emotion/react";
 interface ContainerProps {
   children: React.ReactNode;
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  buttonColor?: string;
+  rippleColor?: string;
+  className?: string;
 }
 
 interface Coordinate {
   x: number;
   y: number;
+}
+
+interface RippleProps extends Coordinate {
+  rippleColor?: string;
 }
 
 const DEFAULT_COORDINATE = {
@@ -32,20 +39,24 @@ const rippleEffect = keyframes`
   }
 `;
 
-const StyledButton = styled("button")({
-  borderRadius: "4px",
-  border: "none",
-  margin: "8px",
-  padding: "14px 24px",
-  color: "#fff",
-  overflow: "hidden",
-  position: "relative",
-  cursor: "pointer",
-}, (props)=>({
-  background: props.theme.colors.neutral.white
-}));
+const StyledButton = styled("button")<{ buttonColor?: string }>(
+  {
+    borderRadius: "4px",
+    border: "none",
+    padding: "14px 24px",
+    color: "#fff",
+    overflow: "hidden",
+    position: "relative",
+    cursor: "pointer",
+  },
+  (props) => ({
+    background: props.buttonColor
+      ? props.buttonColor
+      : props.theme.colors.neutral.white,
+  })
+);
 
-const Ripple = styled("span")<Coordinate>(
+const Ripple = styled("span")<RippleProps>(
   {
     width: "10px",
     height: "10px",
@@ -60,7 +71,9 @@ const Ripple = styled("span")<Coordinate>(
   (props) => ({
     left: props.x,
     right: props.y,
-    background: props.theme.colors.neutral.darkGray
+    background: props.rippleColor
+      ? props.rippleColor
+      : props.theme.colors.neutral.darkGray,
   })
 );
 
@@ -69,7 +82,13 @@ const Content = styled("span")({
   zIndex: 2,
 });
 
-const Button = ({ children, onClick }: ContainerProps): JSX.Element => {
+const Button = ({
+  children,
+  onClick,
+  buttonColor,
+  rippleColor,
+  className,
+}: ContainerProps): JSX.Element => {
   const [coordinate, setCoordinate] = useState<Coordinate>(DEFAULT_COORDINATE);
   const [isRippling, setIsRippling] = useState<boolean>(false);
 
@@ -107,7 +126,11 @@ const Button = ({ children, onClick }: ContainerProps): JSX.Element => {
     coordinateX: number,
     coordinateY: number
   ) => {
-    return isRippling ? <Ripple x={coordinateX} y={coordinateY} /> : "";
+    return isRippling ? (
+      <Ripple x={coordinateX} y={coordinateY} rippleColor={rippleColor} />
+    ) : (
+      ""
+    );
   };
 
   const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
@@ -116,7 +139,11 @@ const Button = ({ children, onClick }: ContainerProps): JSX.Element => {
     onClick && onClick(e);
   };
   return (
-    <StyledButton className="ripple-button" onClick={handleClick}>
+    <StyledButton
+      className={className}
+      onClick={handleClick}
+      buttonColor={buttonColor}
+    >
       {renderRipple(isRippling, coordinate.x, coordinate.y)}
       <Content>{children}</Content>
     </StyledButton>

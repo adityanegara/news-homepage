@@ -5,11 +5,11 @@ const ContrainerStyled = styled("div")(
   {
     marginLeft: "auto",
     marginRight: "auto",
-    width: "90%",
+    width: "95%",
   },
   (props) => ({
     [`@media(min-width: ${props.theme.layout.mobile})`]: {
-      width: "70%",
+      width: "90%",
     },
     [`@media(min-width: ${props.theme.layout.desktop})`]: {
       width: "75%",
