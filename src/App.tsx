@@ -4,16 +4,12 @@ import { jsx } from "@emotion/react";
 import { css } from "@emotion/react/macro";
 import { Global } from "@emotion/react";
 import { ThemeProvider, Theme } from "@emotion/react";
-import Container from "./components/atoms/Container/Container";
-import Navbar from "./components/organisms/Navbar/Navbar";
-import Header from "./components/organisms/Header/Header";
-import ArticleList from "./components/organisms/ArticleList/ArticleList";
-import Chart from "./components/organisms/Chart/Chart";
+import HomePage from "./components/template/HomePage/HomePage";
 
 const theme: Theme = {
   layout: {
     mobile: "375px",
-    desktop: "1440px",
+    desktop: "1000px",
   },
   colors: {
     primary: {
@@ -59,12 +55,7 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <Global styles={global} />
-      <Container>
-        <Navbar />
-        <Header />
-        <ArticleList />
-        <Chart />
-      </Container>
+      <HomePage />
     </ThemeProvider>
   );
 };

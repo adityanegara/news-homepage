@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import HeaderImage from "../../../assets/image-web-3-mobile.jpg";
+import elipsisOnText from "../../../helpers/elipsisOnText";
 import Button from "../../atoms/Button/Button";
 import { useTheme } from "@emotion/react";
 
@@ -43,11 +44,14 @@ const Header = (): JSX.Element => {
   return (
     <HeaderStyled>
       <img src={HeaderImage} alt="web 3.0" />
-      <HeaderOne>The Bright Future of Web 3.0?</HeaderOne>
+      <HeaderOne>
+        {elipsisOnText("The Bright Future of Web 3.0?", 41)}
+      </HeaderOne>
       <Description>
-        We dive into the next evolution of the web that claims to put the power
-        of the platforms back into the hands of the people. But is it really
-        fullfilling its promise?
+        {elipsisOnText(
+          "We dive into the next evolution of the web that claims to put the power of the platforms back into the hands of the people. But is it really fulfilling its promise?",
+          180
+        )}
       </Description>
       <CallToAction
         buttonColor={theme.colors.primary.second}

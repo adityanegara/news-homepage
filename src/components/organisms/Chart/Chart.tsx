@@ -2,6 +2,7 @@ import ChartArticles from "../../molecules/ChartArticle/ChartArticle";
 import CHART_ARTICLES from "./ChartConstant";
 import ChartArticleModel from "../../../model/IChartArticle";
 import styled from "@emotion/styled";
+import zeroBeforeNumber from "../../../helpers/zeroBeforeNumber";
 
 const ChartStyled = styled("section")({
   marginTop: "5vh",
@@ -20,7 +21,7 @@ const Chart = () => {
         <ChartArticles
           title={article.title}
           description={article.description}
-          rank={`0${i + 1}`}
+          rank={zeroBeforeNumber(i + 1)}
           image={article.image}
         />
       );

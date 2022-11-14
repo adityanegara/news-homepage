@@ -1,3 +1,4 @@
+import elipsisOnText from "../../../helpers/elipsisOnText";
 import styled from "@emotion/styled";
 
 interface ChartArticlesProps {
@@ -61,8 +62,8 @@ const ChartArticles = ({
       <img src={image} className="article-image" />
       <div className="article-info">
         <p className="chart">{rank}</p>
-        <a className="title">{title}</a>
-        <p className="description">{description}</p>
+        <a className="title">{elipsisOnText(title, 30)}</a>
+        <p className="description">{elipsisOnText(description, 60)}</p>
       </div>
     </ChartArticleStyled>
   );

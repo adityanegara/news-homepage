@@ -1,3 +1,4 @@
+import elipsisOnText from "../../../helpers/elipsisOnText";
 import styled from "@emotion/styled";
 
 interface ArticleProps {
@@ -16,7 +17,7 @@ const ArticleStyled = styled("article")<{ borderBottom?: boolean }>(
     [".article-title"]: {
       fontWeight: 700,
       transition: "ease-in 0.2s",
-      cursor: 'pointer'
+      cursor: "pointer",
     },
     [".article-description"]: {
       fontWeight: 400,
@@ -45,8 +46,8 @@ const Article = ({
 }: ArticleProps): JSX.Element => {
   return (
     <ArticleStyled borderBottom={borderBottom}>
-      <a className="article-title">{title}</a>
-      <p className="article-description">{description}</p>
+      <a className="article-title">{elipsisOnText(title, 30)}</a>
+      <p className="article-description">{elipsisOnText(description, 80)}</p>
     </ArticleStyled>
   );
 };
