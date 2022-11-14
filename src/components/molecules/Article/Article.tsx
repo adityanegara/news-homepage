@@ -15,6 +15,8 @@ const ArticleStyled = styled("article")<{ borderBottom?: boolean }>(
     marginTop: "20px",
     [".article-title"]: {
       fontWeight: 700,
+      transition: "ease-in 0.2s",
+      cursor: 'pointer'
     },
     [".article-description"]: {
       fontWeight: 400,
@@ -23,6 +25,9 @@ const ArticleStyled = styled("article")<{ borderBottom?: boolean }>(
   (props) => ({
     [".article-title"]: {
       color: props.theme.colors.neutral.white,
+      ["&:hover"]: {
+        color: props.theme.colors.primary.first,
+      },
     },
     [".article-description"]: {
       color: props.theme.colors.neutral.gray,
@@ -40,7 +45,7 @@ const Article = ({
 }: ArticleProps): JSX.Element => {
   return (
     <ArticleStyled borderBottom={borderBottom}>
-      <p className="article-title">{title}</p>
+      <a className="article-title">{title}</a>
       <p className="article-description">{description}</p>
     </ArticleStyled>
   );

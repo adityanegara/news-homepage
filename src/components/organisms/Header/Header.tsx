@@ -51,6 +51,7 @@ const Header = (): JSX.Element => {
       </Description>
       <CallToAction
         buttonColor={theme.colors.primary.second}
+        buttonHoverColor={theme.colors.neutral.black}
         rippleColor={theme.colors.primary.first}
         onClick={(e) => {
           console.log("clicked");

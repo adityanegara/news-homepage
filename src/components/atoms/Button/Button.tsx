@@ -6,6 +6,7 @@ interface ContainerProps {
   children: React.ReactNode;
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
   buttonColor?: string;
+  buttonHoverColor?: string;
   rippleColor?: string;
   className?: string;
 }
@@ -39,7 +40,10 @@ const rippleEffect = keyframes`
   }
 `;
 
-const StyledButton = styled("button")<{ buttonColor?: string }>(
+const StyledButton = styled("button")<{
+  buttonColor?: string;
+  buttonHoverColor?: string;
+}>(
   {
     borderRadius: "4px",
     border: "none",
@@ -48,11 +52,17 @@ const StyledButton = styled("button")<{ buttonColor?: string }>(
     overflow: "hidden",
     position: "relative",
     cursor: "pointer",
+    transition: "ease-in 0.2s",
   },
   (props) => ({
     background: props.buttonColor
       ? props.buttonColor
       : props.theme.colors.neutral.white,
+    ["&:hover"]: {
+      background: props.buttonHoverColor
+        ? props.buttonHoverColor
+        : props.theme.colors.neutral.gray,
+    },
   })
 );
 
@@ -86,6 +96,7 @@ const Button = ({
   children,
   onClick,
   buttonColor,
+  buttonHoverColor,
   rippleColor,
   className,
 }: ContainerProps): JSX.Element => {
@@ -143,6 +154,7 @@ const Button = ({
       className={className}
       onClick={handleClick}
       buttonColor={buttonColor}
+      buttonHoverColor={buttonHoverColor}
     >
       {renderRipple(isRippling, coordinate.x, coordinate.y)}
       <Content>{children}</Content>
