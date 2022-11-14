@@ -5,8 +5,9 @@ import { css } from "@emotion/react/macro";
 import { Global } from "@emotion/react";
 import { ThemeProvider, Theme } from "@emotion/react";
 import Container from "./components/atoms/Container/Container";
-import NavbarMobile from "./components/molecules/MobileNavbar/Navbar";
+import Navbar from "./components/organisms/Navbar/Navbar";
 import Header from "./components/organisms/Header/Header";
+import ArticleList from "./components/organisms/ArticleList/ArticleList";
 
 const theme: Theme = {
   layout: {
@@ -58,8 +59,9 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <Global styles={global} />
       <Container>
-        <NavbarMobile />
+        <Navbar />
         <Header />
+        <ArticleList />
       </Container>
     </ThemeProvider>
   );

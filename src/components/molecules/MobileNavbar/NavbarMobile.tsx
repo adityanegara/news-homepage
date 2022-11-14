@@ -3,16 +3,16 @@ import Button from "../../atoms/Button/Button";
 import OpenNavbar from "../../../assets/icon-menu.svg";
 import Logo from "../../../assets/logo.svg";
 
-const Navbar = styled("nav")({
+const NavbarMobileStyled = styled("nav")({
   marginTop: "3vh",
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
 });
 
-const NavbarMobile = () => {
+const NavbarMobile = (): JSX.Element => {
   return (
-    <Navbar>
+    <NavbarMobileStyled>
       <img src={Logo} alt="logo" />
       <Button
         onClick={() => {
@@ -21,7 +21,7 @@ const NavbarMobile = () => {
       >
         <img src={OpenNavbar} alt="open navbar"></img>
       </Button>
-    </Navbar>
+    </NavbarMobileStyled>
   );
 };
 

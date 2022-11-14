@@ -1,6 +1,6 @@
-import NavbarMobile from "../../molecules/MobileNavbar/Navbar";
+import NavbarMobile from "../../molecules/MobileNavbar/NavbarMobile";
 
-const Navbar = () => {
+const Navbar = (): JSX.Element => {
   return <NavbarMobile />;
 };
 

@@ -29,7 +29,7 @@ const CallToAction = styled(Button)({
 
 const Description = styled("p")(
   {
-    lineHeight: "25px",
+    lineHeight: "28px",
     fontSize: "1.2em",
     fontWeight: 400,
   },
@@ -38,7 +38,7 @@ const Description = styled("p")(
   })
 );
 
-const Header = () => {
+const Header = (): JSX.Element => {
   const theme = useTheme();
   return (
     <HeaderStyled>
