@@ -8,6 +8,7 @@ import Container from "./components/atoms/Container/Container";
 import Navbar from "./components/organisms/Navbar/Navbar";
 import Header from "./components/organisms/Header/Header";
 import ArticleList from "./components/organisms/ArticleList/ArticleList";
+import Chart from "./components/organisms/Chart/Chart";
 
 const theme: Theme = {
   layout: {
@@ -62,6 +63,7 @@ const App = () => {
         <Navbar />
         <Header />
         <ArticleList />
+        <Chart />
       </Container>
     </ThemeProvider>
   );
