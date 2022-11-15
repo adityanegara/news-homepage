@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import HeaderImage from "../../../assets/image-web-3-mobile.jpg";
-import elipsisOnText from "../../../helpers/elipsisOnText";
+import elipsisOnText from "../../../helpers/ElipsisOnText/elipsisOnText";
 import Button from "../../atoms/Button/Button";
 import { useTheme } from "@emotion/react";
 

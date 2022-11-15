@@ -1,5 +1,6 @@
-import elipsisOnText from "../../../helpers/elipsisOnText";
+import elipsisOnText from "../../../helpers/ElipsisOnText/elipsisOnText";
 import styled from "@emotion/styled";
+import textElipsis from "../../../helpers/ElipsisOnText/elipsisConstant";
 
 interface ArticleProps {
   title: string;
@@ -46,8 +47,8 @@ const Article = ({
 }: ArticleProps): JSX.Element => {
   return (
     <ArticleStyled borderBottom={borderBottom}>
-      <a className="article-title">{elipsisOnText(title, 30)}</a>
-      <p className="article-description">{elipsisOnText(description, 80)}</p>
+      <a role="article-title" className="article-title">{elipsisOnText(title, textElipsis.articleTitle)}</a>
+      <p role="article-description" className="article-description">{elipsisOnText(description, textElipsis.articleDescription)}</p>
     </ArticleStyled>
   );
 };

@@ -1,4 +1,4 @@
-import elipsisOnText from "../../../helpers/elipsisOnText";
+import elipsisOnText from "../../../helpers/ElipsisOnText/elipsisOnText";
 import styled from "@emotion/styled";
 
 interface ChartArticlesProps {
