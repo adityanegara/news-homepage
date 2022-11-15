@@ -58,7 +58,7 @@ const ChartArticles = ({
   description,
 }: ChartArticlesProps): JSX.Element => {
   return (
-    <ChartArticleStyled>
+    <ChartArticleStyled role={'chart-article'}>
       <img src={image} alt={image} role="chart-image" className="article-image" />
       <div className="article-info">
         <p role="chart-rank" className="chart">{rank}</p>
