@@ -4,6 +4,9 @@ import Navbar from "../../organisms/Navbar/Navbar";
 import Header from "../../organisms/Header/Header";
 import ArticleList from "../../organisms/ArticleList/ArticleList";
 import Chart from "../../organisms/Chart/Chart";
+import useMediaQuery from "../../../hooks/useMedaQuery";
+import theme from "../../../theme/styledTheme";
+import ScreenSizeModel from "../../../model/TScreenSize";
 
 const ContentLayout = styled("div")(
   {
@@ -17,8 +20,25 @@ const ContentLayout = styled("div")(
 );
 
 const HomePage = (): JSX.Element => {
+  const isScreenMobile = useMediaQuery(
+    `(min-width: 0px) and (max-width: ${theme.layout.mobile})`
+  );
+  const isScreenTablet = useMediaQuery(
+    `(min-width: ${theme.layout.mobile}) and (max-width: ${theme.layout.desktop})`
+  );
+
+  const getScreenSize = (): ScreenSizeModel => {
+    if (isScreenMobile) {
+      return "mobile";
+    }
+    if (isScreenTablet) {
+      return "tablet";
+    }
+    return "desktop";
+  };
+
   return (
-    <Container>
+    <Container screenSize={getScreenSize()}>
       <Navbar />
       <ContentLayout>
         <Header />
