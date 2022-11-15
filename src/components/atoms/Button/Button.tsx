@@ -138,7 +138,7 @@ const Button = ({
     coordinateY: number
   ) => {
     return isRippling ? (
-      <Ripple x={coordinateX} y={coordinateY} rippleColor={rippleColor} />
+      <Ripple role="ripple" x={coordinateX} y={coordinateY} rippleColor={rippleColor} />
     ) : (
       ""
     );
