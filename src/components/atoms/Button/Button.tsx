@@ -2,13 +2,14 @@ import { useState, useEffect, MouseEvent } from "react";
 import styled from "@emotion/styled";
 import { keyframes } from "@emotion/react";
 
-interface ContainerProps {
+interface ButtonProps {
   children: React.ReactNode;
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
   buttonColor?: string;
   buttonHoverColor?: string;
   rippleColor?: string;
   className?: string;
+  role?: string;
 }
 
 interface Coordinate {
@@ -99,7 +100,8 @@ const Button = ({
   buttonHoverColor,
   rippleColor,
   className,
-}: ContainerProps): JSX.Element => {
+  role,
+}: ButtonProps): JSX.Element => {
   const [coordinate, setCoordinate] = useState<Coordinate>(DEFAULT_COORDINATE);
   const [isRippling, setIsRippling] = useState<boolean>(false);
 
@@ -138,7 +140,12 @@ const Button = ({
     coordinateY: number
   ) => {
     return isRippling ? (
-      <Ripple role="ripple" x={coordinateX} y={coordinateY} rippleColor={rippleColor} />
+      <Ripple
+        role="ripple"
+        x={coordinateX}
+        y={coordinateY}
+        rippleColor={rippleColor}
+      />
     ) : (
       ""
     );
@@ -151,6 +158,7 @@ const Button = ({
   };
   return (
     <StyledButton
+      role={role}
       className={className}
       onClick={handleClick}
       buttonColor={buttonColor}

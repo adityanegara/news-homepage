@@ -15,6 +15,7 @@ const NavbarMobile = (): JSX.Element => {
     <NavbarMobileStyled>
       <img src={Logo} alt="logo" />
       <Button
+        role="sidebar-open-button"
         onClick={() => {
           console.log("click");
         }}
