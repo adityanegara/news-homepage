@@ -46,7 +46,7 @@ const Article = ({
   borderBottom,
 }: ArticleProps): JSX.Element => {
   return (
-    <ArticleStyled borderBottom={borderBottom}>
+    <ArticleStyled role="article" borderBottom={borderBottom}>
       <a role="article-title" className="article-title">{elipsisOnText(title, textElipsis.articleTitle)}</a>
       <p role="article-description" className="article-description">{elipsisOnText(description, textElipsis.articleDescription)}</p>
     </ArticleStyled>

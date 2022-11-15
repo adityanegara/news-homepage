@@ -6,8 +6,8 @@ import JoyconImage from "../../../assets/image-gaming-growth.jpg";
 const CHART_ARTICLES: ChartArticleModel[] = [
   {
     id: 1,
-    title: "Long Titleeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
-    description: "Long Descriptionnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn",
+    title: "Reviving Retro PCS",
+    description: "What happens when old PCs are given modern upgrades?",
     image: RetroComputerImage,
   },
   {
