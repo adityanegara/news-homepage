@@ -59,11 +59,11 @@ const ChartArticles = ({
 }: ChartArticlesProps): JSX.Element => {
   return (
     <ChartArticleStyled>
-      <img src={image} className="article-image" />
+      <img src={image} alt={image} role="chart-image" className="article-image" />
       <div className="article-info">
-        <p className="chart">{rank}</p>
-        <a className="title">{elipsisOnText(title, 30)}</a>
-        <p className="description">{elipsisOnText(description, 60)}</p>
+        <p role="chart-rank" className="chart">{rank}</p>
+        <a role="chart-title" className="title">{elipsisOnText(title, 30)}</a>
+        <p role="chart-description" className="description">{elipsisOnText(description, 60)}</p>
       </div>
     </ChartArticleStyled>
   );
