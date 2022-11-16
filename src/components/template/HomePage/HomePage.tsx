@@ -8,6 +8,7 @@ import useMediaQuery from "../../../hooks/useMedaQuery";
 import theme from "../../../theme/styledTheme";
 import ScreenSizeModel from "../../../model/TScreenSize";
 import ARTICLES from "../../../constant/ArticleListConstant";
+import CHART_ARTICLES from "../../../constant/ChartConstant";
 
 const ContentLayout = styled("div")(
   {
@@ -45,7 +46,7 @@ const HomePage = (): JSX.Element => {
         <Header />
         <ArticleList articles={ARTICLES} />
       </ContentLayout>
-      <Chart />
+      <Chart chartArticles={CHART_ARTICLES} />
     </Container>
   );
 };

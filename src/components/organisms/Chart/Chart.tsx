@@ -1,8 +1,11 @@
 import ChartArticles from "../../molecules/ChartArticle/ChartArticle";
-import CHART_ARTICLES from "../../../constant/ChartConstant";
 import ChartArticleModel from "../../../model/IChartArticle";
 import styled from "@emotion/styled";
 import zeroBeforeNumber from "../../../helpers/zeroBeforeNumber";
+
+interface ChartProps {
+  chartArticles: ChartArticleModel[];
+}
 
 const ChartStyled = styled("section")({
   marginTop: "5vh",
@@ -12,7 +15,7 @@ const ChartStyled = styled("section")({
   gap: "30px",
 });
 
-const Chart = () => {
+const Chart = ({ chartArticles }: ChartProps) => {
   const renderChartArticles = (
     articles: ChartArticleModel[]
   ): JSX.Element[] => {
@@ -30,7 +33,7 @@ const Chart = () => {
   };
 
   return (
-    <ChartStyled id="chart">{renderChartArticles(CHART_ARTICLES)}</ChartStyled>
+    <ChartStyled id="chart">{renderChartArticles(chartArticles)}</ChartStyled>
   );
 };
 

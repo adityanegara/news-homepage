@@ -1,5 +1,5 @@
 import "@testing-library/jest-dom";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { ThemeProvider, Global } from "@emotion/react";
 import global from "../../../theme/global";
 import theme from "../../../theme/styledTheme";
@@ -11,7 +11,7 @@ describe("Article List", () => {
     render(
       <ThemeProvider theme={theme}>
         <Global styles={global} />
-        <Chart />
+        <Chart chartArticles={CHART_ARTICLES} />
       </ThemeProvider>
     );
     const articleListElement = screen.getAllByRole("chart-article");
