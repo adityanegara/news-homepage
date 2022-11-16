@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import HeaderImage from "../../../assets/image-web-3-mobile.jpg";
 import elipsisOnText from "../../../helpers/ElipsisOnText/elipsisOnText";
 import textElipsis from "../../../constant/elipsisConstant";
 import Button from "../../atoms/Button/Button";
@@ -58,11 +57,15 @@ const Header = ({ headerArticle, screenSize }: HeaderProps): JSX.Element => {
   const theme = useTheme();
   return (
     <HeaderStyled>
-      <img src={renderImage(screenSize, headerArticle)} alt="web 3.0" />
-      <HeaderOne>
+      <img
+        role="header-image"
+        src={renderImage(screenSize, headerArticle)}
+        alt="web 3.0"
+      />
+      <HeaderOne role="header-title">
         {elipsisOnText(headerArticle.title, textElipsis.headerTitle)}
       </HeaderOne>
-      <Description>
+      <Description role="header-description">
         {elipsisOnText(
           headerArticle.description,
           textElipsis.headerDescription
