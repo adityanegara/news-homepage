@@ -4,8 +4,8 @@ import { ThemeProvider, Global } from "@emotion/react";
 import global from "../../../theme/global";
 import theme from "../../../theme/styledTheme";
 import ChartArticles from "./ChartArticle";
-import CHART_ARTICLES from "../../organisms/Chart/ChartConstant";
-import textElipsis from "../../../helpers/ElipsisOnText/elipsisConstant";
+import CHART_ARTICLES from "../../../constant/ChartConstant";
+import textElipsis from "../../../constant/elipsisConstant";
 
 describe("Article", () => {
   beforeEach(() => {
@@ -40,13 +40,13 @@ describe("Article", () => {
     const chartDescriptionElement = screen.getByRole("chart-description");
     const chartImage = screen.getByRole("chart-image");
 
-    expect(chartRankElement).toHaveTextContent(`${CHART_ARTICLES[0].id}`)
+    expect(chartRankElement).toHaveTextContent(`${CHART_ARTICLES[0].id}`);
     expect(chartTitleElement).toHaveTextContent(
       "Long Titleeeeeeeeeeeeeeeeeeeee..."
     );
     expect(chartDescriptionElement).toHaveTextContent(
       "Long Descriptionnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn..."
     );
-    expect(chartImage).toHaveAttribute('src', CHART_ARTICLES[0].image);
+    expect(chartImage).toHaveAttribute("src", CHART_ARTICLES[0].image);
   });
 });

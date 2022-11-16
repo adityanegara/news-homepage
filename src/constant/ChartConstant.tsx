@@ -1,7 +1,7 @@
-import ChartArticleModel from "../../../model/IChartArticle";
-import RetroComputerImage from "../../../assets/image-retro-pcs.jpg";
-import KeyboardImage from "../../../assets/image-top-laptops.jpg";
-import JoyconImage from "../../../assets/image-gaming-growth.jpg";
+import ChartArticleModel from "../model/IChartArticle";
+import RetroComputerImage from "../assets/image-retro-pcs.jpg";
+import KeyboardImage from "../assets/image-top-laptops.jpg";
+import JoyconImage from "../assets/image-gaming-growth.jpg";
 
 const CHART_ARTICLES: ChartArticleModel[] = [
   {

@@ -4,14 +4,14 @@ import { ThemeProvider, Global } from "@emotion/react";
 import global from "../../../theme/global";
 import theme from "../../../theme/styledTheme";
 import ArticleList from "./ArticleList";
-import ARTICLES from "./ArticleListConstant";
+import ARTICLES from "../../../constant/ArticleListConstant";
 
 describe("Article List", () => {
   it("Should show required message when the input is empty", () => {
     render(
       <ThemeProvider theme={theme}>
         <Global styles={global} />
-        <ArticleList />
+        <ArticleList articles={ARTICLES} />
       </ThemeProvider>
     );
     const articleListElement = screen.getAllByRole("article");

@@ -7,6 +7,7 @@ import Chart from "../../organisms/Chart/Chart";
 import useMediaQuery from "../../../hooks/useMedaQuery";
 import theme from "../../../theme/styledTheme";
 import ScreenSizeModel from "../../../model/TScreenSize";
+import ARTICLES from "../../../constant/ArticleListConstant";
 
 const ContentLayout = styled("div")(
   {
@@ -42,7 +43,7 @@ const HomePage = (): JSX.Element => {
       <Navbar />
       <ContentLayout>
         <Header />
-        <ArticleList />
+        <ArticleList articles={ARTICLES} />
       </ContentLayout>
       <Chart />
     </Container>

@@ -1,4 +1,4 @@
-import ArticleModel from "../../../model/IArticle";
+import ArticleModel from "../model/IArticle";
 
 const ARTICLES: ArticleModel[] = [
   {

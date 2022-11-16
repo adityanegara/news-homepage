@@ -4,7 +4,7 @@ import { ThemeProvider, Global } from "@emotion/react";
 import global from "../../../theme/global";
 import theme from "../../../theme/styledTheme";
 import Chart from "./Chart";
-import CHART_ARTICLES from "./ChartConstant";
+import CHART_ARTICLES from "../../../constant/ChartConstant";
 
 describe("Article List", () => {
   it("Should show required message when the input is empty", () => {

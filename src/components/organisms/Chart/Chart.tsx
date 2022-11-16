@@ -1,5 +1,5 @@
 import ChartArticles from "../../molecules/ChartArticle/ChartArticle";
-import CHART_ARTICLES from "./ChartConstant";
+import CHART_ARTICLES from "../../../constant/ChartConstant";
 import ChartArticleModel from "../../../model/IChartArticle";
 import styled from "@emotion/styled";
 import zeroBeforeNumber from "../../../helpers/zeroBeforeNumber";
@@ -19,6 +19,7 @@ const Chart = () => {
     return articles.map((article: ChartArticleModel, i) => {
       return (
         <ChartArticles
+          key={article.id}
           title={article.title}
           description={article.description}
           rank={zeroBeforeNumber(i + 1)}

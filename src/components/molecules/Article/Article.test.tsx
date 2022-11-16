@@ -4,7 +4,7 @@ import { ThemeProvider, Global } from "@emotion/react";
 import global from "../../../theme/global";
 import theme from "../../../theme/styledTheme";
 import Article from "./Article";
-import textElipsis from "../../../helpers/ElipsisOnText/elipsisConstant";
+import textElipsis from "../../../constant/elipsisConstant";
 
 describe("Article", () => {
   beforeEach(() => {

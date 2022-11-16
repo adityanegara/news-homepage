@@ -1,7 +1,10 @@
 import styled from "@emotion/styled";
 import Article from "../../molecules/Article/Article";
-import ARTICLES from "./ArticleListConstant";
 import ArticleModel from "../../../model/IArticle";
+
+interface ArticleListProps {
+  articles: ArticleModel[];
+}
 
 const ArticleListStyled = styled("section")(
   {
@@ -47,12 +50,12 @@ const renderArticles = (articles: ArticleModel[]): JSX.Element[] => {
   });
 };
 
-const ArticleList = (): JSX.Element => {
+const ArticleList = ({ articles }: ArticleListProps): JSX.Element => {
   return (
     <ArticleListStyled id="article list">
       <ArticleListContainer>
         <HeadingTwo>New</HeadingTwo>
-        {renderArticles(ARTICLES)}
+        {renderArticles(articles)}
       </ArticleListContainer>
     </ArticleListStyled>
   );
