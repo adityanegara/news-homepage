@@ -1,8 +1,16 @@
 import styled from "@emotion/styled";
 import HeaderImage from "../../../assets/image-web-3-mobile.jpg";
 import elipsisOnText from "../../../helpers/ElipsisOnText/elipsisOnText";
+import textElipsis from "../../../constant/elipsisConstant";
 import Button from "../../atoms/Button/Button";
 import { useTheme } from "@emotion/react";
+import HeaderModel from "../../../model/IHeader";
+import ScreenSizeModel from "../../../model/TScreenSize";
+
+interface HeaderProps {
+  headerArticle: HeaderModel;
+  screenSize: ScreenSizeModel;
+}
 
 const HeaderStyled = styled("header")({
   marginTop: "3vh",
@@ -39,18 +47,25 @@ const Description = styled("p")(
   })
 );
 
-const Header = (): JSX.Element => {
+const renderImage = (
+  screenSize: ScreenSizeModel,
+  header: HeaderModel
+): string => {
+  return screenSize !== "desktop" ? header.mobileImage : header.desktopImage;
+};
+
+const Header = ({ headerArticle, screenSize }: HeaderProps): JSX.Element => {
   const theme = useTheme();
   return (
     <HeaderStyled>
-      <img src={HeaderImage} alt="web 3.0" />
+      <img src={renderImage(screenSize, headerArticle)} alt="web 3.0" />
       <HeaderOne>
-        {elipsisOnText("The Bright Future of Web 3.0?", 41)}
+        {elipsisOnText(headerArticle.title, textElipsis.headerTitle)}
       </HeaderOne>
       <Description>
         {elipsisOnText(
-          "We dive into the next evolution of the web that claims to put the power of the platforms back into the hands of the people. But is it really fulfilling its promise?",
-          180
+          headerArticle.description,
+          textElipsis.headerDescription
         )}
       </Description>
       <CallToAction

@@ -9,6 +9,7 @@ import theme from "../../../theme/styledTheme";
 import ScreenSizeModel from "../../../model/TScreenSize";
 import ARTICLES from "../../../constant/ArticleListConstant";
 import CHART_ARTICLES from "../../../constant/ChartConstant";
+import HEADER_ARTICLE from "../../../constant/HeaderConstant";
 
 const ContentLayout = styled("div")(
   {
@@ -43,7 +44,7 @@ const HomePage = (): JSX.Element => {
     <Container screenSize={getScreenSize()}>
       <Navbar />
       <ContentLayout>
-        <Header />
+        <Header screenSize={getScreenSize()} headerArticle={HEADER_ARTICLE} />
         <ArticleList articles={ARTICLES} />
       </ContentLayout>
       <Chart chartArticles={CHART_ARTICLES} />

@@ -2,7 +2,7 @@ import { Theme } from "@emotion/react";
 
 const theme: Theme = {
   layout: {
-    mobile: "375px",
+    mobile: "400px",
     desktop: "1000px",
   },
   colors: {
