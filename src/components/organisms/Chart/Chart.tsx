@@ -1,7 +1,7 @@
 import ChartArticles from "../../molecules/ChartArticle/ChartArticle";
 import ChartArticleModel from "../../../model/IChartArticle";
 import styled from "@emotion/styled";
-import zeroBeforeNumber from "../../../helpers/zeroBeforeNumber";
+import zeroBeforeNumber from "../../../helpers/ZeroBeforeNumber/zeroBeforeNumber";
 
 interface ChartProps {
   chartArticles: ChartArticleModel[];
