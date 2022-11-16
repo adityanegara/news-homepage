@@ -5,7 +5,7 @@ import Button from "../../atoms/Button/Button";
 import { useTheme } from "@emotion/react";
 import HeaderModel from "../../../model/IHeader";
 import ScreenSizeModel from "../../../model/TScreenSize";
-
+//
 interface HeaderProps {
   headerArticle: HeaderModel;
   screenSize: ScreenSizeModel;
