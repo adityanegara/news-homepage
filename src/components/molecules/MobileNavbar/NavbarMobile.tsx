@@ -12,7 +12,7 @@ const NavbarMobileStyled = styled("nav")({
 
 const NavbarMobile = (): JSX.Element => {
   return (
-    <NavbarMobileStyled>
+    <NavbarMobileStyled role="navbar-mobile">
       <img src={Logo} alt="logo" />
       <Button
         role="sidebar-open-button"

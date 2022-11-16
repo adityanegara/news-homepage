@@ -42,7 +42,7 @@ const HomePage = (): JSX.Element => {
 
   return (
     <Container screenSize={getScreenSize()}>
-      <Navbar />
+      <Navbar screenSize={getScreenSize()} />
       <ContentLayout>
         <Header screenSize={getScreenSize()} headerArticle={HEADER_ARTICLE} />
         <ArticleList articles={ARTICLES} />
