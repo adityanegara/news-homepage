@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import Button from "../../atoms/Button/Button";
 import OpenNavbar from "../../../assets/icon-menu.svg";
 import Logo from "../../../assets/logo.svg";
+import Modal from "../../atoms/Modal/Modal";
 
 const NavbarMobileStyled = styled("nav")({
   marginTop: "3vh",
@@ -12,6 +13,7 @@ const NavbarMobileStyled = styled("nav")({
 
 const NavbarMobile = (): JSX.Element => {
   return (
+    <>
     <NavbarMobileStyled role="navbar-mobile">
       <img src={Logo} alt="logo" />
       <Button
@@ -23,6 +25,8 @@ const NavbarMobile = (): JSX.Element => {
         <img src={OpenNavbar} alt="open navbar"></img>
       </Button>
     </NavbarMobileStyled>
+    <Modal></Modal>
+    </>
   );
 };
 
