@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom";
 import styled from "@emotion/styled";
 import { useOnClickOutside } from "usehooks-ts";
-import { useRef } from 'react';
+import { useRef } from "react";
 import Overlay from "../Overlay/Overlay";
 import Button from "../Button/Button";
 import CloseModal from "../../../assets/icon-menu-close.svg";
@@ -34,10 +34,16 @@ const CloseButtonContainer = styled("div")({
 
 const modalRoot = document.getElementById("modal") as HTMLElement;
 const Modal = ({ isModalOpen, setIsModalOpen }: ModalProps) => {
+  const ref = useRef(null);
+  const handleClickOutside = () => {
+    setIsModalOpen(false);
+  };
+  useOnClickOutside(ref, handleClickOutside);
+
   const renderModal = (isModalOpen: boolean): JSX.Element | null => {
     return isModalOpen ? (
       <Overlay>
-        <ModalContainer>
+        <ModalContainer ref={ref}>
           <CloseButtonContainer>
             <Button
               role="close-button"

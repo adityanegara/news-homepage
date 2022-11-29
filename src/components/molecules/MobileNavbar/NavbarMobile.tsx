@@ -4,6 +4,7 @@ import Button from "../../atoms/Button/Button";
 import OpenNavbar from "../../../assets/icon-menu.svg";
 import Logo from "../../../assets/logo.svg";
 import Modal from "../../atoms/Modal/Modal";
+import { useEffect } from "react";
 
 const NavbarMobileStyled = styled("nav")({
   marginTop: "3vh",
@@ -14,6 +15,13 @@ const NavbarMobileStyled = styled("nav")({
 
 const NavbarMobile = (): JSX.Element => {
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
+  useEffect(() => {
+    if (isSidebarOpen) {
+      document.body.style.overflowY = "hidden";
+    } else {
+      document.body.style.overflowY = "visible";
+    }
+  }, [isSidebarOpen]);
   return (
     <>
       <NavbarMobileStyled role="navbar-mobile">
@@ -27,7 +35,10 @@ const NavbarMobile = (): JSX.Element => {
           <img src={OpenNavbar} alt="open navbar" />
         </Button>
       </NavbarMobileStyled>
-      <Modal isModalOpen={isSidebarOpen} setIsModalOpen={setIsSidebarOpen}></Modal>
+      <Modal
+        isModalOpen={isSidebarOpen}
+        setIsModalOpen={setIsSidebarOpen}
+      ></Modal>
     </>
   );
 };
