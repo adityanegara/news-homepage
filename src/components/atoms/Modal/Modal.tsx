@@ -10,6 +10,7 @@ import CloseModal from "../../../assets/icon-menu-close.svg";
 interface ModalProps {
   isModalOpen: boolean;
   setIsModalOpen: Function;
+  children: JSX.Element
 }
 
 const ModalContainer = styled(motion.div)(
@@ -34,7 +35,7 @@ const CloseButtonContainer = styled("div")({
 });
 
 const modalRoot = document.getElementById("modal") as HTMLElement;
-const Modal = ({ isModalOpen, setIsModalOpen }: ModalProps) => {
+const Modal = ({ isModalOpen, setIsModalOpen, children}: ModalProps) => {
   const ref = useRef(null);
   const handleClickOutside = () => {
     setIsModalOpen(false);
@@ -64,6 +65,7 @@ const Modal = ({ isModalOpen, setIsModalOpen }: ModalProps) => {
               <img src={CloseModal} alt="close modal" />
             </Button>
           </CloseButtonContainer>
+          {children}
         </ModalContainer>
       </Overlay>
     ) : null;

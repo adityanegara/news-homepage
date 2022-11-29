@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "@emotion/styled";
 import Button from "../../atoms/Button/Button";
 import OpenNavbar from "../../../assets/icon-menu.svg";
 import Logo from "../../../assets/logo.svg";
 import Modal from "../../atoms/Modal/Modal";
-import { useEffect } from "react";
+import Sidebar from "../Sidebar/Sidebar";
 
 const NavbarMobileStyled = styled("nav")({
   marginTop: "3vh",
@@ -35,10 +35,9 @@ const NavbarMobile = (): JSX.Element => {
           <img src={OpenNavbar} alt="open navbar" />
         </Button>
       </NavbarMobileStyled>
-      <Modal
-        isModalOpen={isSidebarOpen}
-        setIsModalOpen={setIsSidebarOpen}
-      ></Modal>
+      <Modal isModalOpen={isSidebarOpen} setIsModalOpen={setIsSidebarOpen}>
+        <Sidebar />
+      </Modal>
     </>
   );
 };
