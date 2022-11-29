@@ -1,10 +1,11 @@
+import { motion } from "framer-motion";
 import styled from "@emotion/styled";
 
 interface OverlayProps {
   children: JSX.Element;
 }
 
-const OverlayContainer = styled("div")({
+const OverlayContainer = styled(motion.div)({
   position: "fixed",
   top: "0",
   left: "0",
@@ -15,7 +16,16 @@ const OverlayContainer = styled("div")({
 });
 
 const Overlay = ({ children }: OverlayProps): JSX.Element => {
-  return <OverlayContainer>{children}</OverlayContainer>;
+  return (
+    <OverlayContainer
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    
+    >
+      {children}
+    </OverlayContainer>
+  );
 };
 
 export default Overlay;
