@@ -1,6 +1,7 @@
 import ReactDOM from "react-dom";
 import styled from "@emotion/styled";
 import { useOnClickOutside } from "usehooks-ts";
+import { AnimatePresence, motion } from "framer-motion";
 import { useRef } from "react";
 import Overlay from "../Overlay/Overlay";
 import Button from "../Button/Button";
@@ -11,7 +12,7 @@ interface ModalProps {
   setIsModalOpen: Function;
 }
 
-const ModalContainer = styled("div")(
+const ModalContainer = styled(motion.div)(
   {
     overflowY: "scroll",
     position: "fixed",
@@ -43,7 +44,16 @@ const Modal = ({ isModalOpen, setIsModalOpen }: ModalProps) => {
   const renderModal = (isModalOpen: boolean): JSX.Element | null => {
     return isModalOpen ? (
       <Overlay>
-        <ModalContainer ref={ref}>
+        <ModalContainer
+          initial={{ opacity: 0, x: 100}}
+          exit={{ opacity: 0, x: 100}}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{
+            duration: 0.5,
+            ease: [0, 0.71, 0.2, 1.01],
+          }}
+          ref={ref}
+        >
           <CloseButtonContainer>
             <Button
               role="close-button"
@@ -59,7 +69,10 @@ const Modal = ({ isModalOpen, setIsModalOpen }: ModalProps) => {
     ) : null;
   };
 
-  return ReactDOM.createPortal(renderModal(isModalOpen), modalRoot);
+  return ReactDOM.createPortal(
+    <AnimatePresence>{renderModal(isModalOpen)}</AnimatePresence>,
+    modalRoot
+  );
 };
 
 export default Modal;
