@@ -4,7 +4,7 @@ import Navbar from "../../organisms/Navbar/Navbar";
 import Header from "../../organisms/Header/Header";
 import ArticleList from "../../organisms/ArticleList/ArticleList";
 import Chart from "../../organisms/Chart/Chart";
-import useMediaQuery from "../../../hooks/useMedaQuery";
+import useMediaQuery from "../../../hooks/useMediaQuery";
 import theme from "../../../theme/styledTheme";
 import ScreenSizeModel from "../../../model/TScreenSize";
 import ARTICLES from "../../../constant/ArticleListConstant";

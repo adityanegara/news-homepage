@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "@emotion/styled";
 import Button from "../../atoms/Button/Button";
 import OpenNavbar from "../../../assets/icon-menu.svg";
@@ -12,20 +13,21 @@ const NavbarMobileStyled = styled("nav")({
 });
 
 const NavbarMobile = (): JSX.Element => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
   return (
     <>
-    <NavbarMobileStyled role="navbar-mobile">
-      <img src={Logo} alt="logo" />
-      <Button
-        role="sidebar-open-button"
-        onClick={() => {
-          console.log("click");
-        }}
-      >
-        <img src={OpenNavbar} alt="open navbar"></img>
-      </Button>
-    </NavbarMobileStyled>
-    <Modal></Modal>
+      <NavbarMobileStyled role="navbar-mobile">
+        <img src={Logo} alt="logo" />
+        <Button
+          role="sidebar-open-button"
+          onClick={() => {
+            setIsSidebarOpen(true);
+          }}
+        >
+          <img src={OpenNavbar} alt="open navbar" />
+        </Button>
+      </NavbarMobileStyled>
+      <Modal isModalOpen={isSidebarOpen} setIsModalOpen={setIsSidebarOpen}></Modal>
     </>
   );
 };
