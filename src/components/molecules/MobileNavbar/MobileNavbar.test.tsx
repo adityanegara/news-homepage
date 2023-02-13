@@ -2,7 +2,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import { ThemeProvider, Global } from "@emotion/react";
 import global from "../../../theme/global";
 import theme from "../../../theme/styledTheme";
-import NavbarMobile from "./NavbarMobile";
+import NavbarMobile from "./MobileNavbar";
 
 describe("Navbar Mobile", () => {
   it("Should be able to open navbar when navbar open button clicked", async () => {

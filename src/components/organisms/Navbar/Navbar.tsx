@@ -1,4 +1,4 @@
-import NavbarMobile from "../../molecules/MobileNavbar/NavbarMobile";
+import MobileNavbar from "../../molecules/MobileNavbar/MobileNavbar";
 import DesktopNavbar from "../../molecules/DesktopNavbar/DesktopNavbar";
 import ScreenSizeModel from "../../../model/TScreenSize";
 
@@ -8,7 +8,7 @@ interface NavbarProps {
 
 const Navbar = ({ screenSize }: NavbarProps): JSX.Element => {
   const renderNavbar = (screenSize: ScreenSizeModel): JSX.Element => {
-    return screenSize !== "desktop" ? <NavbarMobile /> : <DesktopNavbar />;
+    return screenSize !== "desktop" ? <MobileNavbar /> : <DesktopNavbar />;
   };
 
   return renderNavbar(screenSize);
